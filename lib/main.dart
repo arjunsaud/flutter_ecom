@@ -18,8 +18,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: GoogleFonts.poppins().fontFamily,
         useMaterial3: true,
-        colorScheme:
-            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 200, 0, 0)),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromARGB(255, 200, 0, 0),
+            primary: const Color.fromARGB(255, 200, 0, 0)),
         inputDecorationTheme: const InputDecorationTheme(
             hintStyle: TextStyle(
               fontWeight: FontWeight.bold,
