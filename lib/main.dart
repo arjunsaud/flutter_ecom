@@ -16,10 +16,17 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Shopping App",
       theme: ThemeData(
-          fontFamily: GoogleFonts.poppins().fontFamily,
-          useMaterial3: true,
-          colorScheme:
-              ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 200, 0, 0))),
+        fontFamily: GoogleFonts.poppins().fontFamily,
+        useMaterial3: true,
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 200, 0, 0)),
+        inputDecorationTheme: const InputDecorationTheme(
+            hintStyle: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
+            prefixIconColor: Color.fromARGB(119, 119, 119, 1)),
+      ),
       home: Home(),
     );
   }
