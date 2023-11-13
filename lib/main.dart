@@ -22,13 +22,24 @@ class MyApp extends StatelessWidget {
             seedColor: const Color.fromARGB(255, 200, 0, 0),
             primary: const Color.fromARGB(255, 200, 0, 0)),
         inputDecorationTheme: const InputDecorationTheme(
-            hintStyle: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-            ),
-            prefixIconColor: Color.fromARGB(119, 119, 119, 1)),
+          hintStyle: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+          ),
+          prefixIconColor: Color.fromARGB(119, 119, 119, 1),
+        ),
+        textTheme: const TextTheme(
+          titleMedium: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+          ),
+          bodySmall: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+          ),
+        ),
       ),
-      home: Home(),
+      home: const Home(),
     );
   }
 }

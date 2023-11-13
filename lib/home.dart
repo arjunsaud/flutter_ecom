@@ -1,4 +1,9 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_ecom/global_variables.dart';
+
+import 'product_card.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -8,7 +13,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final List<String> filters = const ['All', 'Nike', 'Addidas', 'More'];
+  final List<String> filters = const ['All', 'Nike', 'Addidas', 'Jorden'];
 
   late String selectedFilter;
 
@@ -94,6 +99,19 @@ class _HomeState extends State<Home> {
                 },
               ),
             ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: products.length,
+                itemBuilder: ((context, index) {
+                  final product = products[index];
+                  return ProductCard(
+                    imageUrl: product['imageUrl'] as String,
+                    price: product['price'] as double,
+                    title: product['title'] as String,
+                  );
+                }),
+              ),
+            )
           ],
         ),
       ),
