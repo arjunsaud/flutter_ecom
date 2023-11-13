@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecom/global_variables.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'home.dart';
+import 'product_detail.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,8 +21,12 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.poppins().fontFamily,
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(255, 200, 0, 0),
-            primary: const Color.fromARGB(255, 200, 0, 0)),
+          seedColor: const Color.fromARGB(255, 200, 0, 0),
+          primary: const Color.fromARGB(255, 200, 0, 0),
+        ),
+        appBarTheme: AppBarTheme(
+          titleTextStyle: TextStyle(fontSize: 20, color: Colors.black),
+        ),
         inputDecorationTheme: const InputDecorationTheme(
           hintStyle: TextStyle(
             fontWeight: FontWeight.bold,
@@ -33,13 +39,20 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.bold,
             fontSize: 18,
           ),
+          titleLarge: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
+          ),
           bodySmall: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 16,
           ),
         ),
       ),
-      home: const Home(),
+      // home: const Home(),
+      home: ProductDetail(
+        product: products[0],
+      ),
     );
   }
 }
