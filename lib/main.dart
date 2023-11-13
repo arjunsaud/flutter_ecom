@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecom/global_variables.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'home.dart';
-import 'product_detail.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +22,7 @@ class MyApp extends StatelessWidget {
           seedColor: const Color.fromARGB(255, 200, 0, 0),
           primary: const Color.fromARGB(255, 200, 0, 0),
         ),
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           titleTextStyle: TextStyle(fontSize: 20, color: Colors.black),
         ),
         inputDecorationTheme: const InputDecorationTheme(
@@ -49,10 +47,10 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      // home: const Home(),
-      home: ProductDetail(
-        product: products[0],
-      ),
+      home: const Home(),
+      // home: ProductDetail(
+      //   product: products[0],
+      // ),
     );
   }
 }
