@@ -2,6 +2,7 @@ import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_ecom/global_variables.dart';
+import 'package:flutter_ecom/product_detail.dart';
 
 import 'product_card.dart';
 
@@ -13,7 +14,13 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final List<String> filters = const ['All', 'Nike', 'Addidas', 'Jorden'];
+  final List<String> filters = const [
+    'All',
+    'Nike',
+    'Addidas',
+    'Jorden',
+    'Caliber'
+  ];
 
   late String selectedFilter;
 
@@ -101,10 +108,19 @@ class _HomeState extends State<Home> {
                 itemCount: products.length,
                 itemBuilder: ((context, index) {
                   final product = products[index];
-                  return ProductCard(
-                    imageUrl: product['imageUrl'] as String,
-                    price: product['price'] as double,
-                    title: product['title'] as String,
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) {
+                          return ProductDetail(product: product);
+                        }),
+                      );
+                    },
+                    child: ProductCard(
+                      imageUrl: product['imageUrl'] as String,
+                      price: product['price'] as double,
+                      title: product['title'] as String,
+                    ),
                   );
                 }),
               ),
