@@ -1,5 +1,4 @@
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter/material.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({super.key});
@@ -11,6 +10,14 @@ class CartPage extends StatefulWidget {
 class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text('Cart'),
+      ),
+      body: Center(
+        child: Text("cart page"),
+      ),
+    );
   }
 }
