@@ -30,7 +30,7 @@ final cart = [
     'id': '3',
     'title': 'Mens\'s Jorden Shoes',
     'price': 44.52,
-    'sizes': [8, 9, 10, 11],
+    'sizes': 10,
     'imageUrl': 'images/nike.png',
     'company': 'Jorden'
   }
