@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecom/cart_provider.dart';
+import 'package:flutter_ecom/providers/cart_provider.dart';
 import 'package:provider/provider.dart';
 
-import 'global_variables.dart';
+import '../global_variables.dart';
 
 class ProductDetail extends StatefulWidget {
   final Map<String, Object> product;
@@ -60,6 +60,7 @@ class _ProductDetailState extends State<ProductDetail> {
             padding: const EdgeInsets.all(20),
             child: Image.asset(
               widget.product['imageUrl'] as String,
+              height: 250,
             ),
           ),
           const Spacer(
@@ -118,7 +119,7 @@ class _ProductDetailState extends State<ProductDetail> {
                   child: ElevatedButton.icon(
                     style: ElevatedButton.styleFrom(
                         backgroundColor: Theme.of(context).colorScheme.primary,
-                        minimumSize: const Size(double.infinity, 50)),
+                        fixedSize: const Size(250, 50)),
                     onPressed: onTap,
                     icon: const Icon(Icons.shopping_cart, color: Colors.white),
                     label: const Text(

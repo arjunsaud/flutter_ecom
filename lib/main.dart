@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecom/cart_provider.dart';
+import 'package:flutter_ecom/providers/cart_provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-import 'home.dart';
+import 'pages/home.dart';
 
 void main() {
   runApp(const MyApp());
