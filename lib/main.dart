@@ -8,13 +8,19 @@ void main() {
   runApp(const MyApp());
 }
 
+//Type of provider
+// Provider
+// ChangeNotifierProvider
+// FutureProvider
+// StreamProvider
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Provider(
-      create: (context) => "Hello",
+    return ChangeNotifierProvider(
+      create: (context) => ChangeNotifier(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: "Shopping App",
