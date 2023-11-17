@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecom/cart_provider.dart';
+import 'package:provider/provider.dart';
 
 import 'global_variables.dart';
 
@@ -15,6 +17,31 @@ class ProductDetail extends StatefulWidget {
 
 class _ProductDetailState extends State<ProductDetail> {
   int selected = 0;
+
+  void onTap() {
+    if (selected != 0) {
+      Provider.of<CartProvider>(context, listen: false).addProduct({
+        'id': widget.product['id'],
+        'title': widget.product['title'],
+        'price': widget.product['price'],
+        'sizes': selected,
+        'imageUrl': widget.product['imageUrl'],
+        'company': widget.product['company']
+      });
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Product Added"),
+        ),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Please Select Size"),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,14 +94,14 @@ class _ProductDetailState extends State<ProductDetail> {
                         child: GestureDetector(
                           onTap: () {
                             setState(() {
-                              selected = index;
+                              selected = size;
                             });
                           },
                           child: Chip(
                             label: Text(
                               size.toString(),
                             ),
-                            backgroundColor: selected == index
+                            backgroundColor: selected == size
                                 ? Theme.of(context).colorScheme.primary
                                 : const Color.fromRGBO(245, 247, 249, 1),
                           ),
@@ -92,9 +119,7 @@ class _ProductDetailState extends State<ProductDetail> {
                     style: ElevatedButton.styleFrom(
                         backgroundColor: Theme.of(context).colorScheme.primary,
                         minimumSize: const Size(double.infinity, 50)),
-                    onPressed: () {
-                      print("object");
-                    },
+                    onPressed: onTap,
                     icon: const Icon(Icons.shopping_cart, color: Colors.white),
                     label: const Text(
                       'Add To Cart',
